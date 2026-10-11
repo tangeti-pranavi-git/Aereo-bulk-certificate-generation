@@ -1,0 +1,47 @@
+{
+  "event_name": "Autonomous Drone Systems Engineering Bootcamp",
+  "event_date": "2026-10-15",
+  "issuer_name": "Aereo Certification Authority",
+  "issuer_title": "Director of Technical Education",
+  "recipients": [
+    {
+      "recipient_name": "Aarav Sharma",
+      "recipient_email": "aarav.sharma@example.com",
+      "custom_attributes": {
+        "grade": "Distinction (98%)",
+        "track": "Autonomous Navigation"
+      }
+    },
+    {
+      "recipient_name": "Priya Nair",
+      "recipient_email": "priya.nair@example.com",
+      "custom_attributes": {
+        "grade": "Honors (94%)",
+        "track": "Remote Sensing & LiDAR"
+      }
+    },
+    {
+      "recipient_name": "Rohan Patel",
+      "recipient_email": "rohan.patel@example.com",
+      "custom_attributes": {
+        "grade": "Pass (88%)",
+        "track": "Flight Dynamics"
+      }
+    },
+    {
+      "recipient_name": "Ananya Roy",
+      "recipient_email": "ananya.roy@example.com",
+      "custom_attributes": {
+        "grade": "Distinction (96%)",
+        "track": "Geospatial Photogrammetry"
+      }
+    },
+    {
+      "recipient_name": "",
+      "recipient_email": "invalid-recipient@example.com",
+      "custom_attributes": {
+        "notes": "Testing failure resilience (blank name)"
+      }
+    }
+  ]
+}

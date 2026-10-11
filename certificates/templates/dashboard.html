@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aereo • Bulk Certificate Generation Engine</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #090D16;
+            --bg-card: rgba(18, 24, 38, 0.75);
+            --bg-card-hover: rgba(26, 35, 54, 0.85);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-focus: rgba(245, 158, 11, 0.5);
+            
+            --gold-500: #F59E0B;
+            --gold-400: #FBBF24;
+            --gold-glow: rgba(245, 158, 11, 0.25);
+            
+            --cyan-500: #06B6D4;
+            --emerald-500: #10B981;
+            --rose-500: #F43F5E;
+            
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --text-dim: #64748B;
+            
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(245, 158, 11, 0.07) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.05) 0px, transparent 50%);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            line-height: 1.5;
+            padding-bottom: 60px;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid var(--border-subtle);
+            backdrop-filter: blur(16px);
+            background: rgba(9, 13, 22, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--gold-500), #D97706);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px var(--gold-glow);
+            font-size: 20px;
+        }
+
+        .brand-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand-tag {
+            font-size: 10px;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--gold-400);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-btn:hover {
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-btn.active {
+            color: var(--gold-400);
+            border-color: rgba(245, 158, 11, 0.4);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        /* Container */
+        .main-container {
+            max-width: 1300px;
+            margin: 32px auto 0;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero-section {
+            margin-bottom: 32px;
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #FFFFFF 40%, var(--gold-400) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 15px;
+            max-width: 760px;
+        }
+
+        /* Grid Layout */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Form Controls */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        input[type="text"], input[type="date"], textarea {
+            background: rgba(10, 14, 23, 0.8);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
+            border-color: var(--gold-500);
+            box-shadow: 0 0 0 3px var(--gold-glow);
+        }
+
+        textarea {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            resize: vertical;
+            min-height: 200px;
+        }
+
+        /* Preset Chips */
+        .presets-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .preset-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .preset-chip:hover {
+            color: var(--gold-400);
+            border-color: rgba(245, 158, 11, 0.4);
+            background: rgba(245, 158, 11, 0.08);
+        }
+
+        /* Action Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold-500), #D97706);
+            color: #0F172A;
+            border: none;
+            padding: 13px 24px;
+            border-radius: var(--radius-md);
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px var(--gold-glow);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-main);
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Progress Card Elements */
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-pill.COMPLETED {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--emerald-500);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .status-pill.PROCESSING, .status-pill.PENDING {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--gold-400);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .status-pill.PARTIALLY_COMPLETED {
+            background: rgba(6, 182, 212, 0.15);
+            color: var(--cyan-500);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        .status-pill.FAILED {
+            background: rgba(244, 63, 94, 0.15);
+            color: var(--rose-500);
+            border: 1px solid rgba(244, 63, 94, 0.3);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--gold-500), var(--emerald-500));
+            width: 0%;
+            border-radius: 6px;
+            transition: width 0.4s ease;
+        }
+
+        /* Stats Grid */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .stat-box {
+            background: rgba(10, 14, 23, 0.6);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Recipient Table */
+        .table-wrapper {
+            max-height: 380px;
+            overflow-y: auto;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(14, 20, 32, 0.95);
+            color: var(--text-dim);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            padding: 10px 14px;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        td {
+            padding: 10px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+        }
+
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .cert-code-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--gold-400);
+        }
+
+        /* Verification & Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(4, 7, 13, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-card {
+            background: #111726;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 880px;
+            max-height: 90vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        .modal-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 520px;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            background: #1E293B;
+        }
+
+        /* Tab panels */
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 0.4; }
+            100% { transform: scale(0.95); opacity: 0.8; }
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--emerald-500);
+            display: inline-block;
+            box-shadow: 0 0 10px var(--emerald-500);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="brand">
+                <div class="brand-logo">🎓</div>
+                <div>
+                    <div class="brand-title">
+                        Aereo Engine
+                        <span class="brand-tag">v1.0 API</span>
+                    </div>
+                </div>
+            </a>
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="switchTab('tab-generate')">⚡ Generate</button>
+                <button class="nav-btn" onclick="switchTab('tab-verify')">🔍 Verify Code</button>
+                <a href="/api/jobs/" target="_blank" class="nav-btn">📑 API Explorer</a>
+                <a href="/admin/" target="_blank" class="nav-btn">🛡️ Admin</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        
+        <!-- Tab 1: Generation & Live Job Tracker -->
+        <div id="tab-generate" class="tab-panel active">
+            <div class="hero-section">
+                <h1 class="hero-title">Bulk Certificate Generator</h1>
+                <p class="hero-desc">
+                    High-throughput, resilient certificate generation engine built on Django REST Framework.
+                    Generates tamper-evident vector PDF credentials with authentic QR code verification and isolated failure handling.
+                </p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Left: Submission Form -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">📝 New Bulk Request</h2>
+                        <span style="font-size: 12px; color: var(--text-dim);">JSON Payload</span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Event / Course Title</label>
+                            <input type="text" id="eventName" value="Autonomous Drone Navigation & Remote Sensing Masterclass">
+                        </div>
+                        <div class="form-group">
+                            <label>Event Date</label>
+                            <input type="date" id="eventDate" value="2026-10-15">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Issuer Organization</label>
+                            <input type="text" id="issuerName" value="Aereo Aerospace Academy">
+                        </div>
+                        <div class="form-group">
+                            <label>Signatory Designation</label>
+                            <input type="text" id="issuerTitle" value="Director of Flight Operations">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; flex-wrap: wrap; gap: 6px;">
+                            <label>Recipients Data (<span id="recipientCountBadge">5</span> students)</label>
+                            <div class="presets-bar">
+                                <span style="font-size: 11px; color: var(--text-dim);">Presets:</span>
+                                <button type="button" class="preset-chip" onclick="loadPreset('valid5')">5 Sample</button>
+                                <button type="button" class="preset-chip" onclick="loadPreset('mixed10')">10 Mixed</button>
+                                <button type="button" class="preset-chip" onclick="loadPreset('bulk50')">50 Cohort</button>
+                                <button type="button" class="preset-chip" onclick="loadPreset('bulk100')">🔥 100 Bulk</button>
+                                <button type="button" class="preset-chip" onclick="loadPreset('bulk500')">🚀 500 Mass</button>
+                                <button type="button" class="preset-chip" style="color: var(--cyan-500); border-color: rgba(6, 182, 212, 0.4);" onclick="document.getElementById('fileUploadInput').click()">📂 Upload File (.json, .csv, .xlsx)</button>
+                                <input type="file" id="fileUploadInput" accept=".json,.csv,.xlsx,.xls" style="display: none;" onchange="handleFileUpload(event)">
+                            </div>
+                        </div>
+                        <textarea id="recipientsJson" spellcheck="false" oninput="updateRecipientCount()"></textarea>
+                    </div>
+
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px; flex-wrap: wrap; gap: 10px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; text-transform: none;">
+                            <input type="checkbox" id="syncMode">
+                            <span style="font-size: 12px; color: var(--text-muted);">Synchronous mode (default: async daemon thread)</span>
+                        </label>
+                        <button type="button" class="btn-primary" id="btnSubmitJob" onclick="submitGenerationJob()">
+                            Generate Certificates ⚡
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right: Active Job Tracker -->
+                <div class="card" id="jobTrackerCard">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            <span class="pulse-dot"></span>
+                            Live Job Monitor
+                        </h2>
+                        <div id="jobStatusBadge" class="status-pill PENDING">Ready for Request</div>
+                    </div>
+
+                    <div id="jobEmptyState" style="text-align: center; padding: 48px 16px; color: var(--text-dim);">
+                        <div style="font-size: 40px; margin-bottom: 12px;">📄</div>
+                        <p style="font-size: 14px;">No active generation job running.</p>
+                        <p style="font-size: 12px; margin-top: 4px;">Submit a bulk request on the left to watch live progress and retrieve certificates.</p>
+                    </div>
+
+                    <div id="jobActiveDetails" style="display: none; flex-direction: column; gap: 18px;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px;">
+                                <span style="color: var(--text-muted);" id="jobEventDisplay">-</span>
+                                <span style="font-weight: 700; color: var(--gold-400);" id="jobPercentDisplay">0%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" id="jobProgressBar"></div>
+                            </div>
+                        </div>
+
+                        <!-- Stats Row -->
+                        <div class="stats-row">
+                            <div class="stat-box">
+                                <div class="stat-value" id="statTotal">0</div>
+                                <div class="stat-label">Total</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" style="color: var(--emerald-500);" id="statSuccess">0</div>
+                                <div class="stat-label">Success</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" style="color: var(--rose-500);" id="statFailed">0</div>
+                                <div class="stat-label">Failed</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" style="color: var(--gold-400);" id="statPending">0</div>
+                                <div class="stat-label">Remaining</div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 12px; color: var(--text-dim);" id="jobIdDisplay">Job ID: -</span>
+                            <a id="btnDownloadZip" href="#" target="_blank" class="btn-secondary" style="display: none;">
+                                📦 Download All (ZIP)
+                            </a>
+                        </div>
+
+                        <!-- Table -->
+                        <div>
+                            <label style="margin-bottom: 8px; display: block;">Recipient Credentials Breakdown</label>
+                            <div class="table-wrapper">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Recipient</th>
+                                            <th>Certificate ID</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recipientsTableBody">
+                                        <!-- Dynamically populated -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Certificate Verification -->
+        <div id="tab-verify" class="tab-panel">
+            <div class="hero-section">
+                <h1 class="hero-title">Certificate Verification Portal</h1>
+                <p class="hero-desc">
+                    Verify the authenticity of any credential issued by Aereo Certification Authority using its unique Certificate ID.
+                </p>
+            </div>
+
+            <div class="card" style="max-width: 640px; margin: 0 auto;">
+                <div class="card-header">
+                    <h2 class="card-title">🔍 Verify Credential</h2>
+                </div>
+                <div class="form-group">
+                    <label>Enter Certificate Code</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="verifyInputCode" placeholder="e.g. AER-2026-X8K9L2" style="flex: 1;">
+                        <button type="button" class="btn-primary" onclick="verifyCertificate()">Verify</button>
+                    </div>
+                </div>
+
+                <div id="verifyResult" style="display: none; margin-top: 12px;"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Modal for Previewing PDF Certificate -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3 class="card-title" id="previewModalTitle">Certificate Preview</h3>
+                <button class="nav-btn" onclick="closePreviewModal()">✕ Close</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfPreviewIframe" class="pdf-frame" src=""></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        const PRESETS = {
+            valid5: [
+                {
+                    "recipient_name": "Aarav Sharma",
+                    "recipient_email": "aarav.sharma@example.com",
+                    "custom_attributes": {"grade": "Distinction (96%)", "role": "Drone Pilot"}
+                },
+                {
+                    "recipient_name": "Priya Nair",
+                    "recipient_email": "priya.nair@example.com",
+                    "custom_attributes": {"grade": "Honors (92%)", "role": "Geospatial Analyst"}
+                },
+                {
+                    "recipient_name": "Rohan Patel",
+                    "recipient_email": "rohan.patel@example.com",
+                    "custom_attributes": {"grade": "Pass (88%)", "role": "Flight Controller"}
+                },
+                {
+                    "recipient_name": "Ananya Roy",
+                    "recipient_email": "ananya.roy@example.com",
+                    "custom_attributes": {"grade": "Distinction (98%)", "role": "LiDAR Specialist"}
+                },
+                {
+                    "recipient_name": "Vikram Sethi",
+                    "recipient_email": "vikram.sethi@example.com",
+                    "custom_attributes": {"grade": "Pass (85%)", "role": "Photogrammetry Lead"}
+                }
+            ],
+            mixed10: [
+                {
+                    "recipient_name": "Kabir Bedi",
+                    "recipient_email": "kabir.bedi@example.com",
+                    "custom_attributes": {"track": "Autonomous Systems"}
+                },
+                {
+                    "recipient_name": "Meera Sen",
+                    "recipient_email": "meera.sen@example.com",
+                    "custom_attributes": {"track": "Sensor Fusion"}
+                },
+                {
+                    "recipient_name": "",  /* Invalid: Blank name */
+                    "recipient_email": "blank.name@example.com"
+                },
+                {
+                    "recipient_name": "Dev Malhotra",
+                    "recipient_email": "not-a-valid-email",  /* Invalid email */
+                    "custom_attributes": {"track": "Computer Vision"}
+                },
+                {
+                    "recipient_name": "Simran Kapoor",
+                    "recipient_email": "simran.k@example.com",
+                    "custom_attributes": {"track": "Flight Regulations"}
+                },
+                {
+                    "recipient_name": "Arjun Das",
+                    "recipient_email": "arjun.das@example.com",
+                    "custom_attributes": {"simulate_failure": true}  /* Simulates isolated runtime failure */
+                },
+                {
+                    "recipient_name": "Tara Verma",
+                    "recipient_email": "tara.verma@example.com",
+                    "custom_attributes": {"track": "Edge Computing"}
+                },
+                {
+                    "recipient_name": "Nikhil Rao",
+                    "recipient_email": "nikhil.rao@example.com",
+                    "custom_attributes": {"track": "Battery Management"}
+                },
+                {
+                    "recipient_name": "Ishaan Gupta",
+                    "recipient_email": "ishaan.g@example.com",
+                    "custom_attributes": {"track": "Telemetry Analytics"}
+                },
+                {
+                    "recipient_name": "Neha Joshi",
+                    "recipient_email": "neha.j@example.com",
+                    "custom_attributes": {"track": "Obstacle Avoidance"}
+                }
+            ],
+        };
+
+        function generateBulkList(count) {
+            const firstNames = ["Aarav", "Vivaan", "Aditya", "Vihaan", "Arjun", "Sai", "Ayaan", "Krishna", "Ishaan", "Pranav", "Kabir", "Aryan", "Dhruv", "Rudra", "Ananya", "Diya", "Gauri", "Pari", "Saanvi", "Myra", "Aarohi", "Navya", "Rhea", "Tara", "Tanvi", "Meera", "Pooja", "Simran", "Alexander", "Emma", "Felix", "Grace", "Liam", "Maya", "Noah", "Olivia", "Sophia"];
+            const lastNames = ["Sharma", "Verma", "Patel", "Mehta", "Nair", "Reddy", "Iyer", "Rao", "Gupta", "Malhotra", "Joshi", "Kulkarni", "Menon", "Smith", "Johnson", "Williams", "Brown", "Wilson", "Taylor"];
+            const tracks = ["Autonomous Flight Control", "LiDAR & Photogrammetry", "Drone Sensor Fusion", "Computer Vision Navigation", "Remote Sensing", "Edge AI Systems"];
+            const grades = ["Distinction (98%)", "Distinction (95%)", "Honors (92%)", "Honors (90%)", "Merit (88%)", "Certified (82%)"];
+
+            const list = [];
+            for (let i = 0; i < count; i++) {
+                if (i === 5) {
+                    list.push({
+                        recipient_name: "", // failure test
+                        recipient_email: `unnamed.student${i}@example.com`,
+                        custom_attributes: { notes: "Testing failure resilience (blank name)" }
+                    });
+                    continue;
+                }
+                if (i === 25) {
+                    list.push({
+                        recipient_name: "Devin FaultyEmail",
+                        recipient_email: "not-a-valid-email", // invalid email test
+                        custom_attributes: { notes: "Testing failure resilience (invalid email)" }
+                    });
+                    continue;
+                }
+                const fn = firstNames[Math.floor(Math.random() * firstNames.length)];
+                const ln = lastNames[Math.floor(Math.random() * lastNames.length)];
+                const track = tracks[Math.floor(Math.random() * tracks.length)];
+                const grade = grades[Math.floor(Math.random() * grades.length)];
+
+                list.push({
+                    recipient_name: `${fn} ${ln}`,
+                    recipient_email: `${fn.toLowerCase()}.${ln.toLowerCase()}${i + 1}@aereo-academy.org`,
+                    custom_attributes: {
+                        track: track,
+                        grade: grade,
+                        cohort: "2026-Batch-Alpha"
+                    }
+                });
+            }
+            return list;
+        }
+
+        let currentPollingInterval = null;
+        let activeJobId = null;
+
+        function updateRecipientCount() {
+            try {
+                const text = document.getElementById('recipientsJson').value;
+                const arr = JSON.parse(text);
+                if (Array.isArray(arr)) {
+                    document.getElementById('recipientCountBadge').innerText = arr.length;
+                    return;
+                }
+            } catch (e) {}
+            document.getElementById('recipientCountBadge').innerText = '?';
+        }
+
+        function loadPreset(name) {
+            let data;
+            if (name === 'bulk50') {
+                data = generateBulkList(50);
+            } else if (name === 'bulk100') {
+                data = generateBulkList(100);
+            } else if (name === 'bulk500') {
+                data = generateBulkList(500);
+            } else {
+                data = PRESETS[name] || PRESETS.valid5;
+            }
+            document.getElementById('recipientsJson').value = JSON.stringify(data, null, 2);
+            updateRecipientCount();
+        }
+
+        async function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            if (file.name.endsWith('.json')) {
+                const text = await file.text();
+                try {
+                    const parsed = JSON.parse(text);
+                    if (Array.isArray(parsed)) {
+                        document.getElementById('recipientsJson').value = JSON.stringify(parsed, null, 2);
+                    } else if (parsed.recipients && Array.isArray(parsed.recipients)) {
+                        if (parsed.event_name) document.getElementById('eventName').value = parsed.event_name;
+                        if (parsed.event_date) document.getElementById('eventDate').value = parsed.event_date;
+                        if (parsed.issuer_name) document.getElementById('issuerName').value = parsed.issuer_name;
+                        if (parsed.issuer_title) document.getElementById('issuerTitle').value = parsed.issuer_title;
+                        document.getElementById('recipientsJson').value = JSON.stringify(parsed.recipients, null, 2);
+                    }
+                    updateRecipientCount();
+                    alert(`Loaded ${file.name} successfully! Click 'Generate Certificates' to execute.`);
+                } catch (e) {
+                    alert('Invalid JSON file format: ' + e.message);
+                }
+            } else if (file.name.endsWith('.csv') || file.name.endsWith('.xlsx') || file.name.endsWith('.xls')) {
+                // Direct Excel (.xlsx) or CSV Upload
+                const formData = new FormData();
+                formData.append('file', file);
+                formData.append('event_name', document.getElementById('eventName').value.trim());
+                formData.append('event_date', document.getElementById('eventDate').value);
+                formData.append('issuer_name', document.getElementById('issuerName').value.trim());
+                formData.append('issuer_title', document.getElementById('issuerTitle').value.trim());
+
+                const btn = document.getElementById('btnSubmitJob');
+                btn.disabled = true;
+                const fileTypeLabel = file.name.endsWith('.csv') ? 'CSV' : 'Excel';
+                btn.innerHTML = `Uploading ${fileTypeLabel} (${file.name})... ⏳`;
+
+                try {
+                    const res = await fetch('/api/jobs/upload-file/', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const data = await res.json();
+                    if (!res.ok) throw new Error(data.error || JSON.stringify(data));
+
+                    activeJobId = data.id;
+                    document.getElementById('jobEmptyState').style.display = 'none';
+                    document.getElementById('jobActiveDetails').style.display = 'flex';
+                    renderJobState(data);
+                    startPolling(activeJobId);
+                } catch (err) {
+                    alert(`Error uploading ${fileTypeLabel}: ` + err.message);
+                } finally {
+                    btn.disabled = false;
+                    btn.innerHTML = 'Generate Certificates ⚡';
+                }
+            }
+        }
+
+        // Initialize preset
+        loadPreset('valid5');
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        async function submitGenerationJob() {
+            const btn = document.getElementById('btnSubmitJob');
+            const eventName = document.getElementById('eventName').value.trim();
+            const eventDate = document.getElementById('eventDate').value;
+            const issuerName = document.getElementById('issuerName').value.trim();
+            const issuerTitle = document.getElementById('issuerTitle').value.trim();
+            const syncMode = document.getElementById('syncMode').checked;
+
+            let recipients;
+            try {
+                recipients = JSON.parse(document.getElementById('recipientsJson').value);
+                if (!Array.isArray(recipients) || recipients.length === 0) {
+                    throw new Error("Recipients must be a non-empty array");
+                }
+            } catch (err) {
+                alert("Invalid JSON format in recipients textarea: " + err.message);
+                return;
+            }
+
+            const payload = {
+                event_name: eventName,
+                event_date: eventDate || null,
+                issuer_name: issuerName,
+                issuer_title: issuerTitle,
+                recipients: recipients
+            };
+
+            btn.disabled = true;
+            btn.innerHTML = "Submitting... ⏳";
+
+            try {
+                const url = `/api/jobs/${syncMode ? '?sync=true' : ''}`;
+                const res = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+                if (!res.ok) {
+                    throw new Error(data.error || JSON.stringify(data.details || data));
+                }
+
+                activeJobId = data.id;
+                document.getElementById('jobEmptyState').style.display = 'none';
+                document.getElementById('jobActiveDetails').style.display = 'flex';
+
+                renderJobState(data);
+                startPolling(activeJobId);
+            } catch (err) {
+                alert("Error starting certificate generation: " + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = "Generate Certificates ⚡";
+            }
+        }
+
+        function startPolling(jobId) {
+            if (currentPollingInterval) clearInterval(currentPollingInterval);
+
+            currentPollingInterval = setInterval(async () => {
+                try {
+                    const res = await fetch(`/api/jobs/${jobId}/`);
+                    if (!res.ok) return;
+                    const job = await res.json();
+                    renderJobState(job);
+
+                    if (job.status === 'COMPLETED' || job.status === 'PARTIALLY_COMPLETED' || job.status === 'FAILED') {
+                        clearInterval(currentPollingInterval);
+                    }
+                } catch (e) {
+                    console.error("Polling error", e);
+                }
+            }, 1000);
+        }
+
+        function renderJobState(job) {
+            const badge = document.getElementById('jobStatusBadge');
+            badge.className = `status-pill ${job.status}`;
+            badge.innerText = job.status.replace('_', ' ');
+
+            document.getElementById('jobEventDisplay').innerText = job.event_name;
+            document.getElementById('jobPercentDisplay').innerText = `${job.progress_percentage}%`;
+            document.getElementById('jobProgressBar').style.width = `${job.progress_percentage}%`;
+
+            document.getElementById('statTotal').innerText = job.total_count;
+            document.getElementById('statSuccess').innerText = job.success_count;
+            document.getElementById('statFailed').innerText = job.failed_count;
+            document.getElementById('statPending').innerText = job.total_count - job.processed_count;
+
+            document.getElementById('jobIdDisplay').innerText = `Job ID: ${job.id}`;
+
+            const zipBtn = document.getElementById('btnDownloadZip');
+            if (job.download_all_url && job.success_count > 0) {
+                zipBtn.style.display = 'inline-flex';
+                zipBtn.href = job.download_all_url;
+            } else {
+                zipBtn.style.display = 'none';
+            }
+
+            // Render Table
+            const tbody = document.getElementById('recipientsTableBody');
+            tbody.innerHTML = '';
+
+            (job.recipients || []).forEach(r => {
+                const tr = document.createElement('tr');
+                
+                let statusBadge = `<span class="status-pill ${r.status}">${r.status}</span>`;
+                if (r.error_message) {
+                    statusBadge += `<div style="font-size: 11px; color: var(--rose-500); margin-top: 4px;">⚠️ ${r.error_message}</div>`;
+                }
+
+                let actions = '-';
+                if (r.status === 'COMPLETED' && r.download_url) {
+                    actions = `
+                        <button class="nav-btn" style="padding: 4px 8px; font-size: 11px;" onclick="openPreview('${r.recipient_name}', '${r.download_url}')">Preview</button>
+                        <a class="nav-btn" style="padding: 4px 8px; font-size: 11px;" href="${r.download_url}" target="_blank">Download</a>
+                    `;
+                }
+
+                tr.innerHTML = `
+                    <td>
+                        <div style="font-weight: 600;">${r.recipient_name || 'Blank'}</div>
+                        <div style="font-size: 11px; color: var(--text-dim);">${r.recipient_email}</div>
+                    </td>
+                    <td><span class="cert-code-tag">${r.certificate_code}</span></td>
+                    <td>${statusBadge}</td>
+                    <td><div style="display: flex; gap: 6px;">${actions}</div></td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openPreview(name, url) {
+            document.getElementById('previewModalTitle').innerText = `Preview Certificate - ${name}`;
+            document.getElementById('pdfPreviewIframe').src = `${url}?preview=true`;
+            document.getElementById('previewModal').style.display = 'flex';
+        }
+
+        function closePreviewModal() {
+            document.getElementById('previewModal').style.display = 'none';
+            document.getElementById('pdfPreviewIframe').src = '';
+        }
+
+        async function verifyCertificate() {
+            const code = document.getElementById('verifyInputCode').value.trim();
+            const resultBox = document.getElementById('verifyResult');
+            if (!code) {
+                alert("Please enter a Certificate Code.");
+                return;
+            }
+
+            resultBox.style.display = 'block';
+            resultBox.innerHTML = '<p style="color: var(--text-muted);">Verifying credential with registry... ⏳</p>';
+
+            try {
+                const res = await fetch(`/api/verify/${encodeURIComponent(code)}/`);
+                const data = await res.json();
+
+                if (!res.ok) {
+                    resultBox.innerHTML = `
+                        <div style="background: rgba(244, 63, 94, 0.1); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: var(--radius-sm); padding: 16px;">
+                            <h4 style="color: var(--rose-500); margin-bottom: 6px;">❌ Verification Failed</h4>
+                            <p style="font-size: 13px; color: var(--text-muted);">${data.error || 'Record not found'}</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                resultBox.innerHTML = `
+                    <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-sm); padding: 18px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                            <h4 style="color: var(--emerald-500); font-size: 16px;">✓ Officially Verified Certificate</h4>
+                            <span class="cert-code-tag">${data.certificate_code}</span>
+                        </div>
+                        <div style="font-size: 14px; line-height: 1.8;">
+                            <div><strong>Recipient:</strong> ${data.recipient_name}</div>
+                            <div><strong>Event / Course:</strong> ${data.event_name}</div>
+                            <div><strong>Issuing Body:</strong> ${data.issuer_name} (${data.issuer_title})</div>
+                            <div><strong>Completion Date:</strong> ${data.event_date || 'N/A'}</div>
+                        </div>
+                        <div style="margin-top: 14px;">
+                            <a href="${data.download_url}" target="_blank" class="btn-primary" style="padding: 8px 16px; font-size: 13px; text-decoration: none;">Download Verified PDF</a>
+                        </div>
+                    </div>
+                `;
+            } catch (err) {
+                resultBox.innerHTML = `<p style="color: var(--rose-500);">Network error: ${err.message}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>

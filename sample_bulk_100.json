@@ -1,0 +1,903 @@
+{
+  "event_name": "Commercial Drone Flight & Navigation Engineering Masterclass",
+  "event_date": "2026-10-15",
+  "issuer_name": "Aereo Certification Authority",
+  "issuer_title": "Director of Technical Education",
+  "recipients": [
+    {
+      "recipient_name": "Pari Pillai",
+      "recipient_email": "pari.pillai1@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Alexander Bhat",
+      "recipient_email": "alexander.bhat2@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rhea Kulkarni",
+      "recipient_email": "rhea.kulkarni3@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Gauri Wilson",
+      "recipient_email": "gauri.wilson4@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Quinn Bhat",
+      "recipient_email": "quinn.bhat5@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "",
+      "recipient_email": "unnamed.student5@example.com",
+      "custom_attributes": {
+        "notes": "Intentionally blank name to test error handling"
+      }
+    },
+    {
+      "recipient_name": "Aryan Wilson",
+      "recipient_email": "aryan.wilson7@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aarohi Jones",
+      "recipient_email": "aarohi.jones8@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Emma Kulkarni",
+      "recipient_email": "emma.kulkarni9@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Ayaan Johnson",
+      "recipient_email": "ayaan.johnson10@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rachel Iyer",
+      "recipient_email": "rachel.iyer11@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Diya Sharma",
+      "recipient_email": "diya.sharma12@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "William Iyer",
+      "recipient_email": "william.iyer13@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Saanvi Davis",
+      "recipient_email": "saanvi.davis14@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Diya Joshi",
+      "recipient_email": "diya.joshi15@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Quinn Rao",
+      "recipient_email": "quinn.rao16@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Meera Chopra",
+      "recipient_email": "meera.chopra17@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rudra Jones",
+      "recipient_email": "rudra.jones18@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Diya Sengupta",
+      "recipient_email": "diya.sengupta19@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Thomas Sengupta",
+      "recipient_email": "thomas.sengupta20@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Paul Brown",
+      "recipient_email": "paul.brown21@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Uma Malhotra",
+      "recipient_email": "uma.malhotra22@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Grace Joshi",
+      "recipient_email": "grace.joshi23@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aryan Patel",
+      "recipient_email": "aryan.patel24@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Advik Gupta",
+      "recipient_email": "advik.gupta25@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Devin CorruptEmail",
+      "recipient_email": "not-a-valid-email-format",
+      "custom_attributes": {
+        "notes": "Intentionally invalid email"
+      }
+    },
+    {
+      "recipient_name": "Pari Gupta",
+      "recipient_email": "pari.gupta27@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "William Mehta",
+      "recipient_email": "william.mehta28@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Arjun Rao",
+      "recipient_email": "arjun.rao29@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Emma Smith",
+      "recipient_email": "emma.smith30@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Meera Jones",
+      "recipient_email": "meera.jones31@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Arjun Deshmukh",
+      "recipient_email": "arjun.deshmukh32@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Charlotte Miller",
+      "recipient_email": "charlotte.miller33@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Kavya Chopra",
+      "recipient_email": "kavya.chopra34@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Navya Gupta",
+      "recipient_email": "navya.gupta35@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Saanvi Gupta",
+      "recipient_email": "saanvi.gupta36@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Shaurya Trivedi",
+      "recipient_email": "shaurya.trivedi37@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Kabir Johnson",
+      "recipient_email": "kabir.johnson38@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Sophia Trivedi",
+      "recipient_email": "sophia.trivedi39@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aarav Menon",
+      "recipient_email": "aarav.menon40@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Krishna Iyer",
+      "recipient_email": "krishna.iyer41@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Ananya Jones",
+      "recipient_email": "ananya.jones42@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Sara Nair",
+      "recipient_email": "sara.nair43@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Felix Kulkarni",
+      "recipient_email": "felix.kulkarni44@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Liam Mehta",
+      "recipient_email": "liam.mehta45@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Daniel Kulkarni",
+      "recipient_email": "daniel.kulkarni46@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Kabir Anderson",
+      "recipient_email": "kabir.anderson47@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Felix Williams",
+      "recipient_email": "felix.williams48@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aditya Bhat",
+      "recipient_email": "aditya.bhat49@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Sai Reddy",
+      "recipient_email": "sai.reddy50@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Myra Verma",
+      "recipient_email": "myra.verma51@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Reyansh Gupta",
+      "recipient_email": "reyansh.gupta52@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aarohi Johnson",
+      "recipient_email": "aarohi.johnson53@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Meera Deshmukh",
+      "recipient_email": "meera.deshmukh54@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aanya Smith",
+      "recipient_email": "aanya.smith55@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Charlotte Reddy",
+      "recipient_email": "charlotte.reddy56@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Simran Johnson",
+      "recipient_email": "simran.johnson57@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "James Mehta",
+      "recipient_email": "james.mehta58@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Krishna Smith",
+      "recipient_email": "krishna.smith59@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Tara Joshi",
+      "recipient_email": "tara.joshi60@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Saanvi Joshi",
+      "recipient_email": "saanvi.joshi61@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Krishna Malhotra",
+      "recipient_email": "krishna.malhotra62@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Sara Venkatesh",
+      "recipient_email": "sara.venkatesh63@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aanya Sharma",
+      "recipient_email": "aanya.sharma64@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Samarth Verma",
+      "recipient_email": "samarth.verma65@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Advik Nair",
+      "recipient_email": "advik.nair66@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Sara Miller",
+      "recipient_email": "sara.miller67@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Arjun Gupta",
+      "recipient_email": "arjun.gupta68@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Alexander Nair",
+      "recipient_email": "alexander.nair69@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Diya Venkatesh",
+      "recipient_email": "diya.venkatesh70@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "James Venkatesh",
+      "recipient_email": "james.venkatesh71@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rudra Johnson",
+      "recipient_email": "rudra.johnson72@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aanya Rao",
+      "recipient_email": "aanya.rao73@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Noah Mehta",
+      "recipient_email": "noah.mehta74@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Aanya Sharma",
+      "recipient_email": "aanya.sharma75@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Marcus FaultyRender",
+      "recipient_email": "marcus.faulty@example.com",
+      "custom_attributes": {
+        "simulate_failure": true,
+        "notes": "Simulated isolated error"
+      }
+    },
+    {
+      "recipient_name": "Rachel Sharma",
+      "recipient_email": "rachel.sharma77@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Tara Pillai",
+      "recipient_email": "tara.pillai78@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Tara Rao",
+      "recipient_email": "tara.rao79@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Noah Rao",
+      "recipient_email": "noah.rao80@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Felix Verma",
+      "recipient_email": "felix.verma81@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Drone Sensor Fusion",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Tara Taylor",
+      "recipient_email": "tara.taylor82@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Thomas Johnson",
+      "recipient_email": "thomas.johnson83@aereo-academy.org",
+      "custom_attributes": {
+        "track": "LiDAR & Photogrammetry",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rhea Taylor",
+      "recipient_email": "rhea.taylor84@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Saanvi Anderson",
+      "recipient_email": "saanvi.anderson85@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rudra Venkatesh",
+      "recipient_email": "rudra.venkatesh86@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Felix Kulkarni",
+      "recipient_email": "felix.kulkarni87@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Autonomous Flight Control",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Tara Kulkarni",
+      "recipient_email": "tara.kulkarni88@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Om Deshmukh",
+      "recipient_email": "om.deshmukh89@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Edge AI Navigation",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Saanvi Smith",
+      "recipient_email": "saanvi.smith90@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Ayaan Davis",
+      "recipient_email": "ayaan.davis91@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rachel Menon",
+      "recipient_email": "rachel.menon92@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Certified (82%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Rachel Reddy",
+      "recipient_email": "rachel.reddy93@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Thermal Imaging & Inspection",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Olivia Patel",
+      "recipient_email": "olivia.patel94@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Merit (88%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Liam Williams",
+      "recipient_email": "liam.williams95@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Shaurya Trivedi",
+      "recipient_email": "shaurya.trivedi96@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Honors (90%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Shaurya Reddy",
+      "recipient_email": "shaurya.reddy97@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Honors (92%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Atharva Verma",
+      "recipient_email": "atharva.verma98@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Geospatial Remote Sensing",
+        "grade": "Distinction (98%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Vihaan Reddy",
+      "recipient_email": "vihaan.reddy99@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Battery Dynamics & Telemetry",
+        "grade": "Distinction (95%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    },
+    {
+      "recipient_name": "Grace Taylor",
+      "recipient_email": "grace.taylor100@aereo-academy.org",
+      "custom_attributes": {
+        "track": "Computer Vision & Obstacle Avoidance",
+        "grade": "Merit (85%)",
+        "cohort": "2026-Batch-Alpha"
+      }
+    }
+  ]
+}
